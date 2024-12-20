@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const connectDB = require('./database/db');
+const connectDB = require('./database/db'); // Import the connectDB function
 const path = require('path');
 
 const dotenv = require('dotenv');
@@ -13,8 +13,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+
+
+// console.log(path.join(__dirname, 'uploads'))
 app.use('/api/auth', userRoutes);
 app.use('/api/files', fileRoutes);
+// app.use('/uploads' ,express.static(path.join(__dirname, 'uploads')));
  app.use('/uploads',fileRoutes)
 
 connectDB()

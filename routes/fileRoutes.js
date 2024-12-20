@@ -39,7 +39,7 @@ const authenticate = (req, res, next) => {
 router.post('/upload', authenticate, upload.single('file'), async (req, res) => {
     const { tags } = req.body;
     const { filename, mimetype } = req.file;
-    const fileUrl = `http://64.226.83.77:3000/uploads/${filename}`;
+    const fileUrl = `http://64.226.83.77:3000/uploads/view/${filename}`;
 
     try {
         const newFile = new File({
